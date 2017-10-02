@@ -8,7 +8,6 @@ def home():
 	today = date.today()
 	yesterday = today - timedelta(7)
 	params = {
-		"title": "Hindustan Petrolium NSE",
 		"startdt": yesterday.strftime("%Y-%m-%d"),
 		"enddt": today.strftime("%Y-%m-%d")
 	}
