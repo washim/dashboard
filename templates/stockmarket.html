@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block headtitle %}Decision making platform to invest in Stock Market by Washim Ahmed{% endblock %}
+{% block body %}
+<div class="row">
+	<div id="messages"></div>
+	<div id="stockstickers"></div>
+	<div class="col-md-12">
+		<div class="box box-info">
+			<div class="box-header with-border">
+				<h3 class="box-title">Loss/Profit Calculator for stock symbols</h3>
+				<div class="box-tools pull-right">
+					  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i> </button>
+					  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+				</div>
+			</div>
+			<div class="box-body">
+				<div class="row">
+					<div class="col-xs-3">
+						<div class="form-group">
+							<label for="stocksymbol">Stock Symbol</label>
+							<select id="stocksymbol" class="form-control">
+								<option value="359937">HINDPETRO</option>
+								<option value="4592385">HINDCOPER</option>
+								<option value="5215745">COALINDIA</option>
+								<option value="969473">WIPRO</option>
+								<option value="4451329">ADANIPOWER</option>
+								<option value="3001089">JSWSTEEL</option>
+								<option value="112129">BHEL</option>
+								<option value="1510401">AXISBANK</option>
+								<option value="3677697">IDEA</option>
+								<option value="3812865">CENTRALBK</option>
+								<option value="261889">FEDERALBNK</option>
+								<option value="2763265">CANBK</option>
+								<option value="1214721">BANKINDIA</option>
+								<option value="2863105">IDFCBANK</option>
+								<option value="2752769">UNIONBANK</option>
+								<option value="3906305">RPOWER</option>
+								<option value="4454401">NHPC</option>
+								<option value="758529">SAIL</option>
+								<option value="877057">TATAPOWER</option>
+								<option value="54273">ASHOKLEY</option>
+								<option value="3660545">PFC</option>
+								<option value="2730497">PNB</option>
+								<option value="633601">ONGC</option>
+								<option value="3771393">DLF</option>
+								<option value="98049">BEL</option>
+								<option value="779521">SBIN</option>
+							</select>
+		                </div>
+					</div>
+					<div class="col-xs-3">
+						<div class="form-group">
+							<label for="stockinterval">Buy/Sell Interval</label>
+							<select id="stockinterval" class="form-control">
+								<option value="minute">Minute</option>
+								<option value="5minute">5 Minute</option>
+								<option value="10minute">10 Minute</option>
+								<option value="15minute">15 Minute</option>
+								<option value="30minute">30 Minute</option>
+								<option value="hour">Hour</option>
+								<option value="day">Day</option>
+							</select>
+		                </div>
+					</div>
+					<div class="col-xs-3">
+						<div class="form-group">
+							<label for="stockconfidenceinterval">Confidence Interval</label>
+							<select id="stockconfidenceinterval" class="form-control">
+								<option value="0.68">68.27%</option>
+								<option value="0.95">95.45%</option>
+								<option value="0.99">99.73%</option>
+							</select>
+		                </div>
+					</div>
+					<div class="col-xs-3">
+						<div class="form-group">
+							<label for="symbolstockprice">Symbol stock price</label>
+							<input type="text" class="form-control" id="symbolstockprice">
+		                </div>
+					</div>
+					<div class="col-xs-3">
+						<div class="form-group">
+							<label for="stockinvest">How much you plan to invest?</label>
+							<input type="text" class="form-control" id="stockinvest">
+		                </div>
+					</div>
+					<div class="col-xs-3">
+						<div class="form-group">
+							<label for="stockstartdt">Start Date</label>
+							<input type="date" class="form-control" id="stockstartdt" value="{{params.startdt}}">
+		                </div>
+					</div>
+					<div class="col-xs-3">
+						<div class="form-group">
+							<label for="stockenddt">End Date</label>
+							<input type="date" class="form-control" id="stockenddt" value="{{params.enddt}}">
+		                </div>
+					</div>
+				</div>
+			</div>
+			<div class="box-footer">
+				<button class="btn btn-primary btnCalculateLossProfit">Calculate</button> <i id="loader1" class="fa fa-refresh fa-spin viewhide"></i>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="box box-info">
+			<div class="box-header with-border">
+				<h3 class="box-title">{{params.title}}</h3>
+				<div class="box-tools pull-right">
+					  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i> </button>
+					  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+				</div>
+			</div>
+			<div class="box-body">
+				<iframe frameborder="0" width="100%" height="500px" src="https://kite.zerodha.com/advanced-chart?v=2.9.11#token=359937&symbol=HINDPETRO&segment=NSE&volume=true&public_token=80be1ee471e6657937e3024457ef4fed&user_id=ZP2572"></iframe>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

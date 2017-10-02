@@ -1,0 +1,15 @@
+.logo-lg img,.logo-mini img{width:100%;}
+.logo .logo-lg{margin-top:10px;}
+.small-box .icon{top: 5px;}
+.form-error{border: 2px solid red;}
+.viewhide{display:none;}
+.show{display:block;}
+@media (max-width: 767px) {
+    .skin-black-light .main-header>.logo {
+        background-color: #fff !important;
+    }
+    .main-header .logo, .main-header .navbar {
+        width: 60%;
+        height: 48px;
+    }
+}
