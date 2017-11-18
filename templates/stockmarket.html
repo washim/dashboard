@@ -52,6 +52,7 @@
 							<label for="stockinterval">Buy/Sell Interval</label>
 							<select id="stockinterval" class="form-control">
 								<option value="minute">Minute</option>
+								<option value="3minute">3 Minutes</option>
 								<option value="5minute">5 Minute</option>
 								<option value="10minute">10 Minute</option>
 								<option value="15minute">15 Minute</option>
@@ -61,7 +62,7 @@
 							</select>
 		                </div>
 					</div>
-					<div class="col-lg-3 col-xs-12 col-offset-right-1">
+					<div class="col-lg-3 col-xs-12">
 						<div class="form-group">
 							<label for="stockconfidenceinterval">Confidence Interval</label>
 							<select id="stockconfidenceinterval" class="form-control">
@@ -72,12 +73,6 @@
 		                </div>
 					</div>
 					<div class="col-lg-3 col-xs-12">
-						<div class="form-group">
-							<label for="symbolstockprice">Symbol stock price</label>
-							<input type="text" class="form-control" id="symbolstockprice">
-		                </div>
-					</div>
-					<div class="col-lg-3 col-xs-12 col-offset-right-6">
 						<div class="form-group">
 							<label for="stockinvest">How much you plan to invest?</label>
 							<input type="text" class="form-control" id="stockinvest">
@@ -102,21 +97,5 @@
 			</div>
 		</div>
 	</div>
-</div>
-<div class="row">
-   <div class="col-md-12">
-       <div class="box box-warning">
-           <div class="box-header with-border">
-               <h3 class="box-title">Stock market advance graph</h3>
-               <div class="box-tools pull-right">
-					<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i> </button>
-					<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-               </div>
-           </div>
-           <div class="box-body">
-               <iframe frameborder="0" width="100%" height="500px" src="https://kite.zerodha.com/advanced-chart?v=2.9.11#token=359937&symbol=HINDPETRO&segment=NSE&volume=true&public_token=80be1ee471e6657937e3024457ef4fed&user_id=ZP2572"></iframe>
-           </div>
-       </div>
-   </div>
 </div>
 {% endblock %}

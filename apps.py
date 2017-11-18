@@ -16,7 +16,7 @@ def home():
 @app.route("/stocktolerance", methods=["GET"])
 def stocktolerance():
 	import tolerance as tl
-	stocktolerance = tl.tolerance(request.args.get("symbol"), request.args.get("interval"), request.args.get("confidence"), request.args.get("price"), request.args.get("investment"), request.args.get("start"), request.args.get("end"))
+	stocktolerance = tl.tolerance(request.args.get("symbol"), request.args.get("interval"), request.args.get("confidence"), request.args.get("investment"), request.args.get("start"), request.args.get("end"))
 	return stocktolerance.getTolerance()
 
 if __name__ == "__main__":

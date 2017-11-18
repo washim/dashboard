@@ -8,7 +8,8 @@ var messages = function(title,body){
 				success: function(data){
 					var template = _.template(data);
 					that.$el.html(template({"title":title,"body":body}));
-				}
+				},
+				cache: false
 			});
 		}
 	});
@@ -20,27 +21,21 @@ $(".btnCalculateLossProfit").click(function() {
 	var symbol = $("#stocksymbol");
 	var interval = $("#stockinterval");
 	var confidence = $("#stockconfidenceinterval");
-	var price = $("#symbolstockprice");
 	var investment = $("#stockinvest");
 	var start = $("#stockstartdt");
 	var end = $("#stockenddt");
-	
-	if (price.val() == "" || !$.isNumeric(price.val())) {
-		price.addClass("form-error");
-		return false;
-	}
 	
 	if (investment.val() == "" || !$.isNumeric(investment.val())) {
 		investment.addClass("form-error");
 		return false;
 	}
+	
 	$(this).attr("disabled","disabled");
 	$("#loader1").removeClass("viewhide");
 	
-	price.removeClass("form-error");
 	investment.removeClass("form-error");
 	
-	var url = '/stocktolerance?symbol=' + symbol.val() + '&interval=' + interval.val() + '&confidence=' + confidence.val() + '&price=' + price.val() + '&investment=' + investment.val() + '&start=' + start.val() + '&end=' + end.val()
+	var url = '/stocktolerance?symbol=' + symbol.val() + '&interval=' + interval.val() + '&confidence=' + confidence.val() + '&investment=' + investment.val() + '&start=' + start.val() + '&end=' + end.val()
 	console.log(url);
 	var Collection1 = Backbone.Collection.extend({
 		url: url

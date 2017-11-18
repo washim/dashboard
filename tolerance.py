@@ -6,8 +6,8 @@ import urllib.request as scrap
 from bs4 import BeautifulSoup
 
 class tolerance:
-	def __init__(self,symbol,interval,confidence,price,invest,start,end):
-		self.config = {"invest":invest,"price":price, "confidence":confidence}
+	def __init__(self,symbol,interval,confidence,invest,start,end):
+		self.config = {"invest":invest, "confidence":confidence}
 		urlData = "https://kitecharts.zerodha.com/api/chart/%s/%s?public_token=b1e66b02b4e0f36db455a25bb02976f1&user_id=ZP2572&api_key=kitefront&access_token=a1KHa5by0HUQ3xaR8cRXYMxJeUeLqWH0&from=%s&to=%s" % (symbol, interval, start, end) 
 		webURL = requests.get(urlData)
 		self.JSON_object = json.loads(webURL.text)
@@ -23,7 +23,7 @@ class tolerance:
 			minmax = st.norm.interval(float(self.config["confidence"]), np.mean(close), np.std(close))
 			mytolerance = st.norm.interval(float(self.config["confidence"]), np.mean(change), np.std(change))
 			mytolerance = (round(mytolerance[0],2),round(mytolerance[1],2))
-			totalstock = int(self.config["invest"])/int(self.config["price"])
+			totalstock = int(self.config["invest"])/close[-1]
 			maxloss = totalstock * abs(mytolerance[0])
 			maxprofit = totalstock * mytolerance[1]
 			totalloss = int(self.config["invest"]) + (totalstock * mytolerance[0])
